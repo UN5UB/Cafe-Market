@@ -1,0 +1,16 @@
+.delivery {
+  &__row {
+    display: flex;
+    justify-content: space-around;
+    gap: 9.375rem;
+  }
+  h2 {
+    margin-bottom: 120px;
+    font-size: 32px;
+    font-weight: 600;
+    margin-left: 120px;
+    span {
+      border-bottom: 3px solid #f4ae26;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 355px;
+  padding: 24px 18px 24px 18px;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 3px solid #e9e1d3;
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5px 12px 5px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  .buttons__status {
+    display: flex;
+    gap: 24px;
+    button {
+      display: flex;
+      height: 32px;
+      color: #ffd28f;
+      border: 2px solid #ffd28f;
+      border-radius: 8px;
+      font-weight: 600;
+      padding: 17px;
+      font-size: 16px;
+      align-items: center;
+    }
+  }
+  .btn__cart {
+    padding: 13px;
+    background-color: #ff902b;
+    border-radius: 50%;
+    svg {
+      path {
+        stroke: #fff;
+      }
+    }
+  }
+}

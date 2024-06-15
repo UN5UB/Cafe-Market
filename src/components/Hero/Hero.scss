@@ -1,0 +1,57 @@
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 150px;
+  padding: 0 130px;
+
+  &__left {
+    max-width: 500px;
+    h1 {
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    p {
+      font-size: 18px;
+      color: #7e7d7a;
+      margin-bottom: 32px;
+    }
+    span {
+      color: #ff902b;
+    }
+
+    .hero__left-buttons {
+      display: flex;
+      gap: 25px;
+      button {
+        display: flex;
+        align-items: center;
+        border-radius: 33px;
+        font-weight: 600;
+      }
+      .order__btn {
+        max-width: 170px;
+        height: 45px;
+        color: #fff;
+        background-color: #2f2105;
+        font-size: 14px;
+        padding: 13px 32px;
+        gap: 10px;
+      }
+      .menu__btn {
+        color: #f4ae26;
+        font-size: 12px;
+      }
+    }
+  }
+  &__right {
+    max-width: 525px;
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
