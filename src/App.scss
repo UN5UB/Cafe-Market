@@ -5,6 +5,20 @@
   overflow: hidden;
 }
 
+.decoration__top {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+.decoration__bottom {
+  position: absolute;
+  left: 0;
+  top: -80px;
+  transform: rotate(90deg);
+  z-index: -1;
+}
+
 .container {
   background-color: #f6ebda;
 }

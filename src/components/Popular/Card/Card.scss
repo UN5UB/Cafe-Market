@@ -6,20 +6,33 @@
   border-radius: 12px;
   background-color: #fff;
   border: 3px solid #e9e1d3;
+  @media (max-width: 479.98px) {
+    max-width: 300px;
+    width: 100%;
+  }
   &__info {
     display: flex;
     justify-content: space-between;
     padding: 20px 5px 12px 5px;
     font-size: 24px;
     font-weight: 600;
+    @media (max-width: 479.98px) {
+      font-size: 16px;
+      padding: 15px 2px 8px 2px;
+    }
   }
   &__buttons {
     display: flex;
     justify-content: space-between;
+    @media (max-width: 479.98px) {
+      flex-wrap: wrap;
+      gap: 0.625rem;
+    }
   }
   .buttons__status {
     display: flex;
     gap: 24px;
+
     button {
       display: flex;
       height: 32px;
@@ -33,13 +46,17 @@
     }
   }
   .btn__cart {
-    padding: 13px;
+    padding: 15px 17px;
     background-color: #ff902b;
     border-radius: 50%;
     svg {
       path {
         stroke: #fff;
       }
+    }
+    @media (max-width: 479.98px) {
+      border-radius: 12px;
+      width: 100%;
     }
   }
 }

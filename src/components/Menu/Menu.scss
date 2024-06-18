@@ -1,0 +1,27 @@
+.menu {
+  padding: 0 145px;
+  margin-bottom: 120px;
+  @media (max-width: 990.98px) {
+    padding: 0 60px;
+  }
+  @media (max-width: 479.98px) {
+    padding: 0 5px;
+  }
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+  }
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    @media (max-width: 990.98px) {
+      text-align: center;
+    }
+    span {
+      border-bottom: 3px solid #f4ae26;
+    }
+  }
+}

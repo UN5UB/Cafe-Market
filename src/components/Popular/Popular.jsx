@@ -17,6 +17,7 @@ export default function Popular() {
               title={item.title}
               imageUrl={item.imageUrl}
               price={item.price}
+              onAdd={(obj) => console.log(obj)}
             />
           ))}
         </div>

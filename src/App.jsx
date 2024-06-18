@@ -1,18 +1,73 @@
+import { useState } from "react";
 import "./App.scss";
+import "./components/Menu/Menu.scss";
+import "./components/Popular/Popular.scss";
+import About from "./components/About/About.jsx";
 import Delivery from "./components/Delivery/Delivery.jsx";
+import Form from "./components/Form/Form.jsx";
 import Header from "./components/Header/Header.jsx";
 import Hero from "./components/Hero/Hero.jsx";
-import Popular from "./components/Popular/Popular.jsx";
+import Drawer from "./components/Header/Drawer/Drawer.jsx";
+import Card from "./components/Popular/Card/Card.jsx";
+import CardMenu from "./components/Menu/CardMenu/CardMenu.jsx";
+import { popular, menu } from "./CAFE_DATA.js";
 
 function App() {
+  const [cartOpened, setCardOpened] = useState(false);
+  let [cartItems, setCartItems] = useState([]);
+
+  const onAddToCart = (obj) => {
+    setCartItems([...cartItems, obj]);
+  };
+  console.log(cartItems);
   return (
     <div className="wrapper">
       <div className="container">
-        <Header />
+        {cartOpened ? (
+          <Drawer items={cartItems} onCloseCart={() => setCardOpened(false)} />
+        ) : null}
+        <Header onCart={() => setCardOpened(true)} />
         <Hero />
       </div>
-      <Popular />
+      <section className="popular">
+        <h2>
+          Popular <span>Now</span>
+        </h2>
+        <div className="popular__background">
+          <div className="popular__row">
+            {popular.map((item) => (
+              <Card
+                key={item.id}
+                title={item.title}
+                imageUrl={item.imageUrl}
+                price={item.price}
+                onAdd={(obj) => onAddToCart(obj)}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <Delivery />
+      <About />
+      <section className="menu">
+        <h2>
+          Special menu <span>for you</span>
+        </h2>
+        <div className="menu__row">
+          {menu.map((menu) => (
+            <CardMenu
+              key={menu.id}
+              title={menu.title}
+              subtitle={menu.subtitle}
+              imageUrl={menu.imageUrl}
+              price={menu.price}
+              onAdd={(el) => onAddToCart(el)}
+            />
+          ))}
+        </div>
+      </section>
+      <Form />
     </div>
   );
 }

@@ -3,20 +3,31 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 60px;
-  margin-bottom: 150px;
+  margin-bottom: 120px;
   padding: 0 130px;
+  @media (max-width: 990.98px) {
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+  }
 
   &__left {
     max-width: 500px;
     h1 {
       font-size: 48px;
       font-weight: 600;
-      margin-bottom: 24px;
+      margin-bottom: 30px;
+      @media (max-width: 479.98px) {
+        font-size: 32px;
+      }
     }
     p {
       font-size: 18px;
       color: #7e7d7a;
-      margin-bottom: 32px;
+      margin-bottom: 80px;
+      @media (max-width: 479.98px) {
+        font-size: 16px;
+      }
     }
     span {
       color: #ff902b;
@@ -25,6 +36,10 @@
     .hero__left-buttons {
       display: flex;
       gap: 25px;
+      @media (max-width: 990.98px) {
+        justify-content: center;
+        margin-bottom: 50px;
+      }
       button {
         display: flex;
         align-items: center;
@@ -32,17 +47,25 @@
         font-weight: 600;
       }
       .order__btn {
-        max-width: 170px;
-        height: 45px;
+        height: 60px;
         color: #fff;
         background-color: #2f2105;
-        font-size: 14px;
+        font-size: 24px;
         padding: 13px 32px;
         gap: 10px;
+        @media (max-width: 1183.98px) {
+          font-size: 16px;
+          padding: 10px 20px;
+        }
       }
       .menu__btn {
+        height: 60px;
+        font-size: 24px;
         color: #f4ae26;
-        font-size: 12px;
+        @media (max-width: 1183.98px) {
+          font-size: 16px;
+          padding: 10px 20px;
+        }
       }
     }
   }

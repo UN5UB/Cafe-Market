@@ -1,14 +1,26 @@
 .delivery {
+  margin-bottom: 210px;
   &__row {
     display: flex;
     justify-content: space-around;
     gap: 9.375rem;
+    padding: 0 30px;
+
+    @media (max-width: 990.98px) {
+      flex-wrap: wrap;
+      gap: 50px;
+    }
   }
   h2 {
     margin-bottom: 120px;
     font-size: 32px;
     font-weight: 600;
     margin-left: 120px;
+    @media (max-width: 990.98px) {
+      margin-left: 0;
+      text-align: center;
+      padding: 0 15px;
+    }
     span {
       border-bottom: 3px solid #f4ae26;
     }

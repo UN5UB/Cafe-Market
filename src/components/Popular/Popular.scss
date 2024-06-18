@@ -14,15 +14,23 @@
     span {
       border-bottom: 3px solid #f4ae26;
     }
+    @media (max-width: 479.98px) {
+      display: flex;
+      justify-content: center;
+      margin: 0 0 120px 0;
+    }
   }
   .popular__background {
     background-color: #f9d9aa;
     margin: 0 120px;
-    height: 370px;
     border-radius: 65px;
+    @media (max-width: 990.98px) {
+      margin: 0;
+    }
   }
   &__row {
     display: flex;
+    flex-wrap: wrap;
     position: relative;
     bottom: 95px;
     justify-content: center;

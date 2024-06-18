@@ -1,0 +1,50 @@
+.card__menu {
+  padding: 22px 25px;
+  box-shadow: 0px 0px 8px 0px #0000002b;
+  border-radius: 12px;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  &-info {
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    p {
+      font-size: 14px;
+      color: #7e7d7a;
+      max-width: 160px;
+    }
+    b {
+      font-weight: 600;
+      font-size: 24px;
+    }
+    button {
+      padding: 13px 15px;
+      background-color: #ff902b;
+      border-radius: 50%;
+      svg {
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+  }
+  .card__description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card__pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
