@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./Header.scss";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Burger from "./Burger/Burger";
+import { nav } from "../../CAFE_DATA";
+import NavLink from "./NavLinks/NavLink";
 
 const Header = (props) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,15 +18,15 @@ const Header = (props) => {
         <img src="/logo_coffe.svg" alt="Cafe Street" />
       </a>
       <nav className={`header__nav ${menuOpen ? "header__nav--open" : ""}`}>
-        <a href="#" className="header__link">
-          About us
-        </a>
-        <a href="#" className="header__link">
-          Our Product
-        </a>
-        <a href="#" className="header__link">
-          Delivery
-        </a>
+        <ul>
+          {nav.map((navLink) => (
+            <NavLink
+              title={navLink.title}
+              link={navLink.link}
+              key={navLink.id}
+            />
+          ))}
+        </ul>
       </nav>
       <div className="header__search">
         <input type="text" placeholder="Search..." />
@@ -50,9 +53,7 @@ const Header = (props) => {
             </g>
           </svg>
         </button>
-        <button className="header__burger" onClick={toggleMenu}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        <Burger />
       </div>
     </header>
   );

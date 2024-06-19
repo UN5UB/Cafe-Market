@@ -3,6 +3,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 50px 120px 0 120px;
+  width: 100%;
+  @media (max-width: 990.98px) {
+    padding: 20px 50px 0 20px;
+  }
 
   &__logo {
     font-size: 1.5rem;
@@ -12,27 +16,27 @@
   &__nav {
     display: flex;
     gap: 1rem;
-
-    &--open {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 1rem 2rem;
+    @media (max-width: 990.98px) {
+      display: none;
     }
   }
 
-  &__link {
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
-    transition: color 0.3s;
+  ul {
+    display: flex;
+    gap: 15px;
+    @media (max-width: 990.98px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem;
+      transition: color 0.3s;
 
-    &:hover {
-      color: #ff902b;
+      &:hover {
+        color: #ff902b;
+      }
     }
   }
 
@@ -47,6 +51,9 @@
       background: url(/Search.svg) no-repeat 5px 6px;
       background-color: #fff;
     }
+    @media (max-width: 990.98px) {
+      display: none;
+    }
   }
 
   &__buttons {
@@ -59,37 +66,37 @@
     cursor: pointer;
   }
 
-  &__burger {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: none;
-    position: relative;
-  }
+  // &__burger {
+  //   background: none;
+  //   border: none;
+  //   font-size: 1.5rem;
+  //   cursor: pointer;
+  //   display: none;
+  //   position: relative;
+  // }
 
-  @media (max-width: 990.98px) {
-    padding: 50px 30px 0 30px;
-    justify-content: center;
-    gap: 0.625rem;
-    &__nav {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
+  // @media (max-width: 990.98px) {
+  //   padding: 50px 30px 0 30px;
+  //   justify-content: center;
+  //   gap: 0.625rem;
+  //   &__nav {
+  //     display: none;
+  //     flex-direction: column;
+  //     align-items: center;
+  //     gap: 1rem;
 
-      &--open {
-        display: flex;
-      }
-    }
+  //     &--open {
+  //       display: flex;
+  //     }
+  //   }
 
-    &__burger {
-      display: block;
-    }
-  }
-  @media (max-width: 451.98px) {
-    padding: 20px 15px 0 15px;
-    display: flex;
-    flex-wrap: wrap;
-  }
+  //   &__burger {
+  //     display: block;
+  //   }
+  // }
+  // @media (max-width: 451.98px) {
+  //   padding: 20px 15px 0 15px;
+  //   display: flex;
+  //   flex-wrap: wrap;
+  // }
 }

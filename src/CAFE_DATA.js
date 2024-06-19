@@ -1,3 +1,21 @@
+export const nav = [
+  {
+    id: "about",
+    title: "About Us",
+    link: "#",
+  },
+  {
+    id: "products",
+    title: "Our Product",
+    link: "#",
+  },
+  {
+    id: "delivery",
+    title: "Delivery",
+    link: "#",
+  },
+];
+
 export const popular = [
   {
     id: "vanilla-latte",

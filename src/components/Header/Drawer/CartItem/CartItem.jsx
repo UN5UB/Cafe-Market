@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CartItem.scss";
+import styles from "./CartItem.module.scss";
 
 export default function CartItem({ title, price, imageUrl }) {
   let [count, setCount] = useState(1);
@@ -13,22 +13,22 @@ export default function CartItem({ title, price, imageUrl }) {
   };
 
   return (
-    <div className="cart__item">
-      <div className="cart__img">
+    <div className={styles.cart__item}>
+      <div className={styles.cart__img}>
         <img src={imageUrl} alt="Product" />
       </div>
-      <div className="cart__info">
-        <h3 className="cart__title">{title}</h3>
+      <div className={styles.cart__info}>
+        <h3 className={styles.cart__title}>{title}</h3>
         <b>{price} $</b>
       </div>
-      <div className="cart__counter">
+      <div className={styles.cart__counter}>
         <button onClick={increment}>+</button>
-        <input value={count} />
+        <input defaultValue={count} />
         <button disabled={count === 1} onClick={decrement}>
           -
         </button>
       </div>
-      <button className="cart__remove">×</button>
+      <button className={styles.cart__remove}>×</button>
     </div>
   );
 }

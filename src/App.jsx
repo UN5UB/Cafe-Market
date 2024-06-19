@@ -14,17 +14,12 @@ import { popular, menu } from "./CAFE_DATA.js";
 
 function App() {
   const [cartOpened, setCardOpened] = useState(false);
-  let [cartItems, setCartItems] = useState([]);
 
-  const onAddToCart = (obj) => {
-    setCartItems([...cartItems, obj]);
-  };
-  console.log(cartItems);
   return (
     <div className="wrapper">
       <div className="container">
         {cartOpened ? (
-          <Drawer items={cartItems} onCloseCart={() => setCardOpened(false)} />
+          <Drawer onCloseCart={() => setCardOpened(false)} />
         ) : null}
         <Header onCart={() => setCardOpened(true)} />
         <Hero />
@@ -41,7 +36,6 @@ function App() {
                 title={item.title}
                 imageUrl={item.imageUrl}
                 price={item.price}
-                onAdd={(obj) => onAddToCart(obj)}
               />
             ))}
           </div>
@@ -62,7 +56,6 @@ function App() {
               subtitle={menu.subtitle}
               imageUrl={menu.imageUrl}
               price={menu.price}
-              onAdd={(el) => onAddToCart(el)}
             />
           ))}
         </div>
