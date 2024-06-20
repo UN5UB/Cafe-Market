@@ -31,6 +31,10 @@
         height: 55px;
         border-radius: 42px;
         padding-left: 30px;
+        outline: 0;
+        outline-offset: 0;
+        border: transparent;
+
         &::placeholder {
           font-weight: 600;
           font-family: "Poppins", sans-serif;
@@ -44,13 +48,20 @@
       button {
         position: absolute;
         display: flex;
-        padding: 12px 32px;
+        padding: 10px 37px;
         margin-right: 5px;
         border-radius: 42px;
         background-color: #2f2105;
+        border: 2px solid transparent;
         color: #ffffff;
         font-weight: 600;
         right: 0;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          background-color: #fff;
+          border: 2px solid #2f2105;
+          color: #2f2105;
+        }
       }
     }
   }

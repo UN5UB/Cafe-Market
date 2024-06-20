@@ -2,6 +2,10 @@
   padding: 22px 25px;
   box-shadow: 0px 0px 8px 0px #0000002b;
   border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.02);
+  }
   img {
     display: block;
     width: 100%;
@@ -30,9 +34,33 @@
       padding: 13px 15px;
       background-color: #ff902b;
       border-radius: 50%;
+      border: 2px solid transparent;
+      transition: all 0.3s ease-in-out;
       svg {
         path {
           stroke: #fff;
+        }
+      }
+      &:hover {
+        background-color: #fff;
+        border: 2px solid #ff902b;
+        svg {
+          path {
+            transition: all 0.3s ease-in-out;
+            stroke: #ff902b;
+          }
+        }
+      }
+    }
+    .btn__active {
+      padding: 13px 15px;
+      background-color: #fff;
+      border-radius: 50%;
+      border: 2px solid #ff902b;
+      width: 100%;
+      svg {
+        path {
+          fill: #ff902b;
         }
       }
     }

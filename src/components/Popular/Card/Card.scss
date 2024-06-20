@@ -6,6 +6,10 @@
   border-radius: 12px;
   background-color: #fff;
   border: 3px solid #e9e1d3;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: translateY(-1.2%);
+  }
   @media (max-width: 479.98px) {
     max-width: 300px;
     width: 100%;
@@ -29,34 +33,40 @@
       gap: 0.625rem;
     }
   }
-  .buttons__status {
-    display: flex;
-    gap: 24px;
 
-    button {
-      display: flex;
-      height: 32px;
-      color: #ffd28f;
-      border: 2px solid #ffd28f;
-      border-radius: 8px;
-      font-weight: 600;
-      padding: 17px;
-      font-size: 16px;
-      align-items: center;
-    }
-  }
   .btn__cart {
     padding: 15px 17px;
     background-color: #ff902b;
-    border-radius: 50%;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
     svg {
       path {
         stroke: #fff;
       }
     }
-    @media (max-width: 479.98px) {
-      border-radius: 12px;
-      width: 100%;
+    &:hover {
+      background-color: #fff;
+      border: 2px solid #ff902b;
+      svg {
+        path {
+          transition: all 0.3s ease-in-out;
+          stroke: #ff902b;
+        }
+      }
+    }
+  }
+  .btn__active {
+    padding: 15px 17px;
+    background-color: #fff;
+    border-radius: 12px;
+    border: 2px solid #ff902b;
+    width: 100%;
+    svg {
+      path {
+        fill: #ff902b;
+      }
     }
   }
 }

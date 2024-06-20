@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./CardMenu.scss";
 
-export default function CardMenu({ title, subtitle, imageUrl, price, onAdd }) {
+export default function CardMenu({ title, subtitle, imageUrl, price }) {
   const [cart, setCart] = useState(true);
 
   const onClickCart = () => {
-    onAdd({ title, price, imageUrl });
     setCart(!cart);
   };
   return (
@@ -18,7 +17,10 @@ export default function CardMenu({ title, subtitle, imageUrl, price, onAdd }) {
         </div>
         <div className="card__pricing">
           <b>{price} $</b>
-          <button onClick={onClickCart} className="btn__cart">
+          <button
+            onClick={onClickCart}
+            className={cart ? "btn__cart" : "btn__active"}
+          >
             {cart ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"

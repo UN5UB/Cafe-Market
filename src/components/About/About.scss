@@ -70,7 +70,13 @@
       font-weight: 600;
       font-size: 12px;
       background-color: #2f2105;
+      border: 2px solid transparent;
       color: #f4ae26;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: transparent;
+        border: 2px solid #f4ae26;
+      }
       @media (max-width: 479.98px) {
         justify-content: center;
       }

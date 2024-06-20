@@ -50,21 +50,34 @@
         height: 60px;
         color: #fff;
         background-color: #2f2105;
+        border: 3px solid transparent;
         font-size: 24px;
         padding: 13px 32px;
         gap: 10px;
+        transition: all 0.2s ease-in-out;
         @media (max-width: 1183.98px) {
           font-size: 16px;
           padding: 10px 20px;
+        }
+        &:hover {
+          background-color: transparent;
+          color: #2f2105;
+          border: 3px solid #2f2105;
         }
       }
       .menu__btn {
         height: 60px;
         font-size: 24px;
         color: #f4ae26;
+        border: 3px solid transparent;
+        padding: 10px 30px;
+        transition: all 0.2s ease-in-out;
         @media (max-width: 1183.98px) {
           font-size: 16px;
           padding: 10px 20px;
+        }
+        &:hover {
+          border: 3px solid #f4ae26;
         }
       }
     }
