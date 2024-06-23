@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./CardMenu.scss";
 
-export default function CardMenu({ title, subtitle, imageUrl, price }) {
+export default function CardMenu({ title, subtitle, imageUrl, price, onAdd }) {
   const [cart, setCart] = useState(true);
 
   const onClickCart = () => {
+    onAdd();
     setCart(!cart);
   };
   return (

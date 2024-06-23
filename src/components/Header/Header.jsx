@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Header.scss";
-import { FaBars, FaTimes } from "react-icons/fa";
 import Burger from "./Burger/Burger";
 import { nav } from "../../CAFE_DATA";
 import NavLink from "./NavLinks/NavLink";

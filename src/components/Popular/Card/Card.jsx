@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./Card.scss";
 
-export default function Card({ title, price, imageUrl }) {
+export default function Card({ title, price, imageUrl, onAdd }) {
   const [cart, setCart] = useState(true);
 
   const onClickCart = () => {
+    onAdd();
     setCart(!cart);
   };
   return (

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import "./components/Menu/Menu.scss";
 import "./components/Popular/Popular.scss";
@@ -11,15 +11,52 @@ import Drawer from "./components/Header/Drawer/Drawer.jsx";
 import Card from "./components/Popular/Card/Card.jsx";
 import CardMenu from "./components/Menu/CardMenu/CardMenu.jsx";
 import { popular, menu } from "./CAFE_DATA.js";
+import axios from "axios";
 
 function App() {
+  useEffect(() => {
+    axios
+      .get("https://6678762a0bd45250561ebea6.mockapi.io/menu/Menu")
+      .then((res) => {
+        setItems(res.data);
+      });
+    axios
+      .get("https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart")
+      .then((res) => {
+        setCartItems(res.data);
+      });
+    axios
+      .get("https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart")
+      .then((res) => {
+        cartItems(res.data);
+      });
+  }, []);
+
   const [cartOpened, setCardOpened] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+
+  const onAddToCart = (obj) => {
+    axios.post("https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart", obj);
+    setCartItems((prev) => [...prev, obj]);
+  };
+
+  const onRemoveFromCart = (id) => {
+    console.log(id);
+    axios.delete(`https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${id}`);
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
+
+  console.log(cartItems);
 
   return (
     <div className="wrapper">
       <div className="container">
         {cartOpened ? (
-          <Drawer onCloseCart={() => setCardOpened(false)} />
+          <Drawer
+            onRemove={onRemoveFromCart}
+            items={cartItems}
+            onCloseCart={() => setCardOpened(false)}
+          />
         ) : null}
         <Header onCart={() => setCardOpened(true)} />
         <Hero />
@@ -36,6 +73,7 @@ function App() {
                 title={item.title}
                 imageUrl={item.imageUrl}
                 price={item.price}
+                onAdd={(obj) => onAddToCart(item)}
               />
             ))}
           </div>
@@ -56,6 +94,7 @@ function App() {
               subtitle={menu.subtitle}
               imageUrl={menu.imageUrl}
               price={menu.price}
+              onAdd={(obj) => onAddToCart(menu)}
             />
           ))}
         </div>

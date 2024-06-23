@@ -1,9 +1,8 @@
 import React from "react";
 import styles from "./Drawer.module.scss";
 import CartItem from "./CartItem/CartItem";
-import { menu } from "../../../CAFE_DATA";
 
-export default function Drawer({ onCloseCart, items = [] }) {
+export default function Drawer({ onCloseCart, items = [], onRemove }) {
   return (
     <div className={styles.overlay}>
       <div className={styles.drawer}>
@@ -43,12 +42,13 @@ export default function Drawer({ onCloseCart, items = [] }) {
           </button>
         </div>
         <div className={styles.drawerCards}>
-          {menu.map((obj) => (
+          {items.map((obj) => (
             <CartItem
               key={obj.id}
               title={obj.title}
               price={obj.price}
               imageUrl={obj.imageUrl}
+              onRemove={onRemove}
             />
           ))}
         </div>

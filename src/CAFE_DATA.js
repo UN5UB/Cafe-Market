@@ -19,7 +19,7 @@ export const nav = [
 export const popular = [
   {
     id: "vanilla-latte",
-    title: "vanilla-latte",
+    title: "Vanilla Latte",
     price: 21,
     imageUrl: "/Cards/Vanilla Latte.png",
   },
