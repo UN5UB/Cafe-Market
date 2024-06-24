@@ -14,6 +14,10 @@ import { popular, menu } from "./CAFE_DATA.js";
 import axios from "axios";
 
 function App() {
+  const [cartOpened, setCardOpened] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+  const [items, setItems] = useState([]);
+
   useEffect(() => {
     axios
       .get("https://6678762a0bd45250561ebea6.mockapi.io/menu/Menu")
@@ -25,25 +29,18 @@ function App() {
       .then((res) => {
         setCartItems(res.data);
       });
-    axios
-      .get("https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart")
-      .then((res) => {
-        cartItems(res.data);
-      });
   }, []);
-
-  const [cartOpened, setCardOpened] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
 
   const onAddToCart = (obj) => {
     axios.post("https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart", obj);
     setCartItems((prev) => [...prev, obj]);
   };
 
-  const onRemoveFromCart = (id) => {
-    console.log(id);
+  const onRemoveItem = (id) => {
     axios.delete(`https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${id}`);
     setCartItems((prev) => prev.filter((item) => item.id !== id));
+
+    console.log(id);
   };
 
   console.log(cartItems);
@@ -53,7 +50,7 @@ function App() {
       <div className="container">
         {cartOpened ? (
           <Drawer
-            onRemove={onRemoveFromCart}
+            onRemove={onRemoveItem}
             items={cartItems}
             onCloseCart={() => setCardOpened(false)}
           />
@@ -67,7 +64,7 @@ function App() {
         </h2>
         <div className="popular__background">
           <div className="popular__row">
-            {popular.map((item) => (
+            {items.slice(5, 9).map((item) => (
               <Card
                 key={item.id}
                 title={item.title}
@@ -87,7 +84,7 @@ function App() {
           Special menu <span>for you</span>
         </h2>
         <div className="menu__row">
-          {menu.map((menu) => (
+          {items.map((menu) => (
             <CardMenu
               key={menu.id}
               title={menu.title}

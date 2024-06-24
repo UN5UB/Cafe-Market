@@ -12,12 +12,8 @@ export default function CartItem({ title, price, imageUrl, id, onRemove }) {
     setCount(count - 1);
   };
 
-  const onClickRemove = () => {
-    onRemove(id);
-  };
-
   return (
-    <div key={id} className={styles.cart__item}>
+    <div className={styles.cart__item}>
       <div className={styles.cart__img}>
         <img src={imageUrl} alt="Product" />
       </div>
@@ -32,7 +28,7 @@ export default function CartItem({ title, price, imageUrl, id, onRemove }) {
           -
         </button>
       </div>
-      <button onClick={onClickRemove} className={styles.cart__remove}>
+      <button onClick={() => onRemove(id)} className={styles.cart__remove}>
         ×
       </button>
     </div>

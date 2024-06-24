@@ -45,6 +45,7 @@ export default function Drawer({ onCloseCart, items = [], onRemove }) {
           {items.map((obj) => (
             <CartItem
               key={obj.id}
+              id={obj.id}
               title={obj.title}
               price={obj.price}
               imageUrl={obj.imageUrl}
