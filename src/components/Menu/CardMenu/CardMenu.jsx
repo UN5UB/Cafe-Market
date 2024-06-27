@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./CardMenu.scss";
+import styles from "./CardMenu.module.scss";
 
-export default function CardMenu({ title, subtitle, imageUrl, price, onAdd }) {
+export default function CardMenu({ title, imageUrl, price, onAdd }) {
   const [cart, setCart] = useState(true);
 
   const onClickCart = () => {
@@ -9,18 +9,17 @@ export default function CardMenu({ title, subtitle, imageUrl, price, onAdd }) {
     setCart(!cart);
   };
   return (
-    <div className="card__menu">
+    <div className={styles.card}>
       <img src={imageUrl} alt="Product" />
-      <div className="card__menu-info">
-        <div className="card__description">
+      <div className={styles.info}>
+        <div className={styles.description}>
           <h3>{title}</h3>
-          <p>{subtitle}</p>
         </div>
-        <div className="card__pricing">
+        <div className={styles.pricing}>
           <b>{price} $</b>
           <button
             onClick={onClickCart}
-            className={cart ? "btn__cart" : "btn__active"}
+            className={cart ? styles.button : styles.button__active}
           >
             {cart ? (
               <svg

@@ -2,9 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 60px;
-  margin-bottom: 120px;
   padding: 0 130px;
+  background-color: rgb(246, 235, 218);
   @media (max-width: 990.98px) {
     flex-direction: column;
     padding: 0 30px;
@@ -16,6 +15,7 @@
     h1 {
       font-size: 48px;
       font-weight: 600;
+      margin-top: 60px;
       margin-bottom: 30px;
       @media (max-width: 479.98px) {
         font-size: 32px;
@@ -33,9 +33,10 @@
       color: #ff902b;
     }
 
-    .hero__left-buttons {
+    .buttons {
       display: flex;
       gap: 25px;
+      margin-bottom: 120px;
       @media (max-width: 990.98px) {
         justify-content: center;
         margin-bottom: 50px;
@@ -46,7 +47,7 @@
         border-radius: 33px;
         font-weight: 600;
       }
-      .order__btn {
+      .order {
         height: 60px;
         color: #fff;
         background-color: #2f2105;
@@ -65,7 +66,7 @@
           border: 3px solid #2f2105;
         }
       }
-      .menu__btn {
+      .menu {
         height: 60px;
         font-size: 24px;
         color: #f4ae26;
@@ -83,6 +84,7 @@
     }
   }
   &__right {
+    margin-top: 60px;
     max-width: 525px;
     img {
       display: block;

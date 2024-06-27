@@ -23,7 +23,7 @@ export default function CartItem({ title, price, imageUrl, id, onRemove }) {
       </div>
       <div className={styles.cart__counter}>
         <button onClick={increment}>+</button>
-        <input defaultValue={count} onChange={1} />
+        <input value={count} />
         <button disabled={count === 1} onClick={decrement}>
           -
         </button>

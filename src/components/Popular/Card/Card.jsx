@@ -1,24 +1,31 @@
 import React, { useState } from "react";
-import "./Card.scss";
+import styles from "./Card.module.scss";
 
-export default function Card({ title, price, imageUrl, onAdd }) {
+export default function Card({
+  title,
+  price,
+  imageUrl,
+  onAdd,
+  checked = false,
+}) {
   const [cart, setCart] = useState(true);
+  const [isChecked, setIsChecked] = useState(checked);
 
   const onClickCart = () => {
     onAdd();
     setCart(!cart);
   };
   return (
-    <div className="card">
+    <div className={styles.card}>
       <img src={imageUrl} alt="Vanilla Latte" />
-      <div className="card__info">
-        <h3 className="card__info-title">{title}</h3>
-        <b className="card__info-price">$ {price}</b>
+      <div className={styles.info}>
+        <h3>{title}</h3>
+        <b>$ {price}</b>
       </div>
-      <div className="card__button">
+      <div className={styles.button}>
         <button
           onClick={onClickCart}
-          className={cart ? "btn__cart" : "btn__active"}
+          className={cart ? styles.cart : styles.cart__active}
         >
           {cart ? (
             <svg

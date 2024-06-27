@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "./Header.scss";
+import styles from "./Header.module.scss";
 import Burger from "./Burger/Burger";
-import { nav } from "../../CAFE_DATA";
-import NavLink from "./NavLinks/NavLink";
+import { Link } from "react-router-dom";
 
 const Header = (props) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,26 +11,25 @@ const Header = (props) => {
   };
 
   return (
-    <header className="header">
-      <a className="header__logo">
+    <header className={styles.header}>
+      <Link to="/" className={styles.logo}>
         <img src="/logo_coffe.svg" alt="Cafe Street" />
-      </a>
-      <nav className={`header__nav ${menuOpen ? "header__nav--open" : ""}`}>
+      </Link>
+      <nav>
         <ul>
-          {nav.map((navLink) => (
-            <NavLink
-              title={navLink.title}
-              link={navLink.link}
-              key={navLink.id}
-            />
-          ))}
+          <li>
+            <a href="#">About us</a>
+          </li>
+          <li>
+            <Link to="/products">Our Product</Link>
+          </li>
+          <li>
+            <a href="#">Delivery</a>
+          </li>
         </ul>
       </nav>
-      <div className="header__search">
-        <input type="text" placeholder="Search..." />
-      </div>
-      <div className="header__buttons">
-        <button onClick={props.onCart} className="header__cart">
+      <div className={styles.buttons}>
+        <button onClick={props.onCart} className={styles.cart}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1em"

@@ -1,4 +1,4 @@
-.card__menu {
+.card {
   padding: 22px 25px;
   box-shadow: 0px 0px 8px 0px #0000002b;
   border-radius: 12px;
@@ -13,7 +13,7 @@
     border-radius: 12px;
     margin-bottom: 20px;
   }
-  &-info {
+  .info {
     display: flex;
     justify-content: space-between;
 
@@ -30,7 +30,7 @@
       font-weight: 600;
       font-size: 24px;
     }
-    button {
+    .button {
       padding: 13px 15px;
       background-color: #ff902b;
       border-radius: 50%;
@@ -52,12 +52,11 @@
         }
       }
     }
-    .btn__active {
+    .button__active {
       padding: 13px 15px;
       background-color: #fff;
       border-radius: 50%;
       border: 2px solid #ff902b;
-      width: 100%;
       svg {
         path {
           fill: #ff902b;
@@ -65,12 +64,12 @@
       }
     }
   }
-  .card__description {
+  .description {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-  .card__pricing {
+  .pricing {
     display: flex;
     flex-direction: column;
     gap: 10px;

@@ -1,9 +1,9 @@
-.burger-menu {
+.burger {
   display: none;
   @media (max-width: 990.98px) {
     display: block;
   }
-  .burger-icon {
+  .icon {
     position: relative;
     top: 6px;
     width: 20px;
@@ -52,18 +52,5 @@
     &.open {
       display: flex;
     }
-  }
-}
-
-.burger__search {
-  margin-top: 30px;
-
-  input {
-    width: 100%;
-    padding: 10px 30px;
-    border: 1px solid #ddd;
-    border-radius: 35px;
-    background: url(/Search.svg) no-repeat 5px 6px;
-    background-color: #fff;
   }
 }

@@ -1,10 +1,10 @@
 import React from "react";
-import "./Form.scss";
+import styles from "./Form.module.scss";
 
 export default function Form() {
   return (
-    <section className="form">
-      <div className="form__info">
+    <section className={styles.form}>
+      <div className={styles.info}>
         <h2>Subscribe to get 50% discount price</h2>
         <form>
           <input placeholder="Email address" type="email" name="discount" />
