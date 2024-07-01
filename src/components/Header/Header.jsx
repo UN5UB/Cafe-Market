@@ -4,12 +4,6 @@ import Burger from "./Burger/Burger";
 import { Link } from "react-router-dom";
 
 const Header = (props) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.logo}>
@@ -18,13 +12,13 @@ const Header = (props) => {
       <nav>
         <ul>
           <li>
-            <a href="#">About us</a>
+            <Link to="/about">About us</Link>
           </li>
           <li>
             <Link to="/products">Our Product</Link>
           </li>
           <li>
-            <a href="#">Delivery</a>
+            <Link to="/delivery">Delivery</Link>
           </li>
         </ul>
       </nav>

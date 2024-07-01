@@ -13,7 +13,7 @@ export default function CartItem({ title, price, imageUrl, id, onRemove }) {
   };
 
   return (
-    <div className={styles.cart__item}>
+    <div key={id} className={styles.cart__item}>
       <div className={styles.cart__img}>
         <img src={imageUrl} alt="Product" />
       </div>

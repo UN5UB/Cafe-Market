@@ -8,7 +8,56 @@ import CardMenu from "../components/Menu/CardMenu/CardMenu.jsx";
 import menu from "../components/Menu/Menu.module.scss";
 import popular from "../components/Popular/Popular.module.scss";
 
-export default function Home({ items, onAddToCart }) {
+export default function Home({ items, onAddToCart, cartItems, isLoading }) {
+  const renderMenu = () => {
+    return (isLoading ? [...Array(10)] : items).map((menu, index) => {
+      if (isLoading) {
+        return <CardMenu key={index} loading={isLoading} />;
+      }
+      if (!menu) return null;
+      return (
+        <CardMenu
+          key={menu.id}
+          id={menu.id}
+          prodId={menu.prodId}
+          title={menu.title}
+          subtitle={menu.subtitle}
+          imageUrl={menu.imageUrl}
+          price={menu.price}
+          checked={cartItems.some((obj) => obj.title === menu.title)}
+          onAdd={() => onAddToCart(menu)}
+          loading={isLoading}
+        />
+      );
+    });
+  };
+
+  const renderItems = () => {
+    return (isLoading ? [...Array(4)] : items)
+      .slice(0, 4)
+      .map((item, index) => {
+        if (isLoading) {
+          return <Card key={index} loading={isLoading} />;
+        }
+
+        if (!item) return null;
+
+        return (
+          <Card
+            key={item.id}
+            id={item.id}
+            prodId={item.prodId}
+            title={item.title}
+            imageUrl={item.imageUrl}
+            price={item.price}
+            onAdd={() => onAddToCart(item)}
+            checked={cartItems.some((obj) => obj.title === item.title)}
+            loading={isLoading}
+          />
+        );
+      });
+  };
+
   return (
     <>
       <Hero />
@@ -16,19 +65,8 @@ export default function Home({ items, onAddToCart }) {
         <h2>
           Popular <span>Now</span>
         </h2>
-        <div className={popular.bacground}>
-          <div className={popular.row}>
-            {items.slice(3, 7).map((item) => (
-              <Card
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                imageUrl={item.imageUrl}
-                price={item.price}
-                onAdd={(obj) => onAddToCart(item)}
-              />
-            ))}
-          </div>
+        <div className={popular.background}>
+          <div className={popular.row}>{renderItems()}</div>
         </div>
       </section>
 
@@ -38,19 +76,7 @@ export default function Home({ items, onAddToCart }) {
         <h2>
           Special menu <span>for you</span>
         </h2>
-        <div className={menu.row}>
-          {items.map((menu) => (
-            <CardMenu
-              key={menu.id}
-              id={menu.id}
-              title={menu.title}
-              subtitle={menu.subtitle}
-              imageUrl={menu.imageUrl}
-              price={menu.price}
-              onAdd={(obj) => onAddToCart(menu)}
-            />
-          ))}
-        </div>
+        <div className={menu.row}>{renderMenu()}</div>
       </section>
       <Form />
     </>
