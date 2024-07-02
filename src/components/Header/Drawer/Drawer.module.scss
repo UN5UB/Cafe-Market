@@ -46,3 +46,54 @@
   border-radius: 15px;
   margin: 30px 10px;
 }
+
+.emptyDrawer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .emptyInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    h4 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      text-decoration: none;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 33px;
+      font-weight: 600;
+      font-size: 12px;
+      background-color: #2f2105;
+      border: 2px solid transparent;
+      color: #f4ae26;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: transparent;
+        border: 2px solid #f4ae26;
+      }
+      @media (max-width: 479.98px) {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  p {
+    font-weight: 600;
+  }
+  b {
+    font-weight: 600;
+  }
+}

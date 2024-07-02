@@ -1,21 +1,3 @@
-export const nav = [
-  {
-    id: "about",
-    title: "About Us",
-    link: "#",
-  },
-  {
-    id: "products",
-    title: "Our Product",
-    link: "#",
-  },
-  {
-    id: "delivery",
-    title: "Delivery",
-    link: "#",
-  },
-];
-
 export const popular = [
   {
     id: "vanilla-latte",
@@ -48,19 +30,19 @@ export const delivery = [
     id: "choose",
     imageUrl: "/Delivery/Pick.png",
     title: "Choose your coffee",
-    description: "There are 20+ coffees for you",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
   },
   {
     id: "delivery",
     imageUrl: "/Delivery/coffee-cup.png",
     title: "We delivery it to you",
-    description: "Choose delivery service",
+    description: "Lorem ipsum dolor sit amet consectetur.",
   },
   {
     id: "coffee",
     imageUrl: "/Delivery/food-truck.png",
     title: "Enjoy your coffee",
-    description: "Enjoy high quality coffee",
+    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
 ];
 

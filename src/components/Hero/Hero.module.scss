@@ -33,53 +33,34 @@
       color: #ff902b;
     }
 
-    .buttons {
-      display: flex;
-      gap: 25px;
+    a {
+      height: 60px;
+      color: #fff;
+      background-color: #2f2105;
+      border: 3px solid transparent;
+      font-size: 24px;
+      padding: 13px 32px;
+      text-decoration: none;
+      gap: 10px;
       margin-bottom: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 33px;
+      font-weight: 600;
       @media (max-width: 990.98px) {
         justify-content: center;
         margin-bottom: 50px;
       }
-      button {
-        display: flex;
-        align-items: center;
-        border-radius: 33px;
-        font-weight: 600;
+      transition: all 0.2s ease-in-out;
+      @media (max-width: 1183.98px) {
+        font-size: 16px;
+        padding: 10px 20px;
       }
-      .order {
-        height: 60px;
-        color: #fff;
-        background-color: #2f2105;
-        border: 3px solid transparent;
-        font-size: 24px;
-        padding: 13px 32px;
-        gap: 10px;
-        transition: all 0.2s ease-in-out;
-        @media (max-width: 1183.98px) {
-          font-size: 16px;
-          padding: 10px 20px;
-        }
-        &:hover {
-          background-color: transparent;
-          color: #2f2105;
-          border: 3px solid #2f2105;
-        }
-      }
-      .menu {
-        height: 60px;
-        font-size: 24px;
-        color: #f4ae26;
-        border: 3px solid transparent;
-        padding: 10px 30px;
-        transition: all 0.2s ease-in-out;
-        @media (max-width: 1183.98px) {
-          font-size: 16px;
-          padding: 10px 20px;
-        }
-        &:hover {
-          border: 3px solid #f4ae26;
-        }
+      &:hover {
+        background-color: #fff;
+        color: #2f2105;
+        border: 3px solid #2f2105;
       }
     }
   }

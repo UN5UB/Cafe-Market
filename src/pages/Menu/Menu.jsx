@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Menu.module.scss";
 import CardMenu from "../../components/Menu/CardMenu/CardMenu";
+import AppContext from "../../context";
 
-export default function Menu({ items, onAddToCart, cartItems, isLoading }) {
+export default function Menu({ onAddToCart }) {
+  const { items, cartItems, isLoading } = useContext(AppContext);
+
   const [searchValue, setSearchValue] = useState("");
 
   const onChangeSearchInput = (e) => {

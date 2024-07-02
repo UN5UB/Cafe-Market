@@ -1,14 +1,16 @@
 import React from "react";
-import "./About.scss";
+import { Link } from "react-router-dom";
+
+import styles from "./About.module.scss";
 
 export default function About() {
   return (
-    <section className="about">
-      <div className="about__container">
-        <div className="about__image">
+    <section className={styles.about}>
+      <div className={styles.container}>
+        <div>
           <img src="/About/about.png" alt="Vanilla Latte" />
         </div>
-        <div className="about__info">
+        <div className={styles.info}>
           <h2>
             About <span>us</span>
           </h2>
@@ -18,7 +20,7 @@ export default function About() {
             main product is made with a secret recipe and available in stores
             worldwide.
           </p>
-          <button type="button">Get your coffee</button>
+          <Link to="/products">Get your coffee</Link>
         </div>
       </div>
     </section>

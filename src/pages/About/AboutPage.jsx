@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./AboutPage.module.scss";
+import Discover from "../Discover/Discover";
 
 export default function AboutPage() {
   return (
@@ -34,6 +35,7 @@ export default function AboutPage() {
         </p>
         <img src="/About/Coffee Types Banner Desktop.webp" alt="Coffee" />
       </div>
+      <Discover />
     </section>
   );
 }

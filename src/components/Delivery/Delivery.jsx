@@ -1,15 +1,15 @@
 import React from "react";
-import "./Delivery.scss";
+import styles from "./Delivery.module.scss";
 import { delivery } from "../../CAFE_DATA";
 import Item from "./Item/Item.jsx";
 
 export default function Delivery() {
   return (
-    <section className="delivery">
-      <h2 className="delivery__title">
+    <section className={styles.delivery}>
+      <h2>
         How to use delivery <span>service</span>
       </h2>
-      <div className="delivery__row">
+      <div className={styles.row}>
         {delivery.map((obj) => (
           <Item
             key={obj.id}

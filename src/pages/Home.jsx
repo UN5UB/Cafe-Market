@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import About from "../components/About/About.jsx";
 import Delivery from "../components/Delivery/Delivery.jsx";
 import Form from "../components/Form/Form.jsx";
@@ -7,30 +7,10 @@ import Card from "../components/Popular/Card/Card.jsx";
 import CardMenu from "../components/Menu/CardMenu/CardMenu.jsx";
 import menu from "../components/Menu/Menu.module.scss";
 import popular from "../components/Popular/Popular.module.scss";
+import AppContext from "../context.jsx";
 
-export default function Home({ items, onAddToCart, cartItems, isLoading }) {
-  const renderMenu = () => {
-    return (isLoading ? [...Array(10)] : items).map((menu, index) => {
-      if (isLoading) {
-        return <CardMenu key={index} loading={isLoading} />;
-      }
-      if (!menu) return null;
-      return (
-        <CardMenu
-          key={menu.id}
-          id={menu.id}
-          prodId={menu.prodId}
-          title={menu.title}
-          subtitle={menu.subtitle}
-          imageUrl={menu.imageUrl}
-          price={menu.price}
-          checked={cartItems.some((obj) => obj.title === menu.title)}
-          onAdd={() => onAddToCart(menu)}
-          loading={isLoading}
-        />
-      );
-    });
-  };
+export default function Home({ onAddToCart }) {
+  const { items, isLoading } = useContext(AppContext);
 
   const renderItems = () => {
     return (isLoading ? [...Array(4)] : items)
@@ -51,11 +31,32 @@ export default function Home({ items, onAddToCart, cartItems, isLoading }) {
             imageUrl={item.imageUrl}
             price={item.price}
             onAdd={() => onAddToCart(item)}
-            checked={cartItems.some((obj) => obj.title === item.title)}
             loading={isLoading}
           />
         );
       });
+  };
+
+  const renderMenu = () => {
+    return (isLoading ? [...Array(10)] : items).map((menu, index) => {
+      if (isLoading) {
+        return <CardMenu key={index} loading={isLoading} />;
+      }
+      if (!menu) return null;
+      return (
+        <CardMenu
+          key={menu.id}
+          id={menu.id}
+          prodId={menu.prodId}
+          title={menu.title}
+          subtitle={menu.subtitle}
+          imageUrl={menu.imageUrl}
+          price={menu.price}
+          onAdd={() => onAddToCart(menu)}
+          loading={isLoading}
+        />
+      );
+    });
   };
 
   return (

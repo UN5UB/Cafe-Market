@@ -8,6 +8,7 @@ import Home from "./pages/Home.jsx";
 import Menu from "./pages/Menu/Menu.jsx";
 import AboutPage from "./pages/About/AboutPage.jsx";
 import DeliveryPage from "./pages/Delivery/DeliveryPage.jsx";
+import AppContext from "./context.jsx";
 
 function App() {
   const [cartOpened, setCardOpened] = useState(false);
@@ -61,52 +62,32 @@ function App() {
     );
   };
 
-  console.log(cartItems);
+  const isAdded = (prodId) => {
+    return cartItems.some((obj) => Number(obj.prodId) === Number(prodId));
+  };
 
   return (
-    <div className="wrapper">
-      {cartOpened ? (
-        <Drawer
-          onRemove={onRemoveItem}
-          items={cartItems}
-          onCloseCart={() => setCardOpened(false)}
-        />
-      ) : null}
-      <Header onCart={() => setCardOpened(true)} />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              cartItems={cartItems}
-              items={items}
-              onAddToCart={onAddToCart}
-              isLoading={isLoading}
-            />
-          }
-          exact
-        />
-      </Routes>
-      <Routes>
-        <Route
-          path="/products"
-          element={
-            <Menu
-              cartItems={cartItems}
-              items={items}
-              onAddToCart={onAddToCart}
-              isLoading={isLoading}
-            />
-          }
-        />
-      </Routes>
-      <Routes>
-        <Route path="/about" element={<AboutPage />} />
-      </Routes>
-      <Routes>
-        <Route path="/delivery" element={<DeliveryPage />} />
-      </Routes>
-    </div>
+    <AppContext.Provider value={{ items, cartItems, isLoading, isAdded }}>
+      <div className="wrapper">
+        {cartOpened ? (
+          <Drawer
+            onRemove={onRemoveItem}
+            items={cartItems}
+            onCloseCart={() => setCardOpened(false)}
+          />
+        ) : null}
+        <Header onCart={() => setCardOpened(true)} />
+        <Routes>
+          <Route path="/" element={<Home onAddToCart={onAddToCart} />} exact />
+          <Route
+            path="/products"
+            element={<Menu onAddToCart={onAddToCart} />}
+          />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/delivery" element={<DeliveryPage />} />
+        </Routes>
+      </div>
+    </AppContext.Provider>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Hero.module.scss";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -12,12 +13,9 @@ export default function Hero() {
           Boost your productivity and build your mood with a glass of coffee in
           the morning{" "}
         </p>
-        <div className={styles.buttons}>
-          <button className={styles.order} type="button">
-            Order now <img src="/HeroBtn.svg" alt="Order" />
-          </button>
-          <button className={styles.menu}>More menu</button>
-        </div>
+        <Link to="/products" className={styles.order} type="button">
+          Order now <img src="/HeroBtn.svg" alt="Order" />
+        </Link>
       </div>
       <div className={styles.hero__right}>
         <img src="/img-hero.png" alt="Hero Image" />

@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import styles from "./CartItem.module.scss";
 
-export default function CartItem({ title, price, imageUrl, id, onRemove }) {
+export default function CartItem({
+  title,
+  price,
+  imageUrl,
+  prodId,
+  id,
+  onRemove,
+}) {
   let [count, setCount] = useState(1);
 
   const increment = () => {

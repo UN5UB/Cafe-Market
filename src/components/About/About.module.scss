@@ -8,7 +8,7 @@
   @media (max-width: 479.98px) {
     background: none;
   }
-  .about__container {
+  .container {
     display: flex;
     justify-content: space-evenly;
     gap: 170px;
@@ -19,7 +19,7 @@
       gap: 1.875rem;
     }
   }
-  .about__info {
+  .info {
     padding: 84px 0;
     @media (max-width: 990.98px) {
       padding: 0 20px;
@@ -61,10 +61,12 @@
         text-align: center;
       }
     }
-    button {
+    a {
       display: flex;
       align-items: center;
       height: 40px;
+      text-decoration: none;
+      justify-content: center;
       padding: 12px 24px;
       border-radius: 33px;
       font-weight: 600;
@@ -74,7 +76,7 @@
       color: #f4ae26;
       transition: all 0.3s ease-in-out;
       &:hover {
-        background-color: transparent;
+        background-color: #fff;
         border: 2px solid #f4ae26;
       }
       @media (max-width: 479.98px) {
