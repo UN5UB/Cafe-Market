@@ -8,6 +8,7 @@ import CardMenu from "../components/Menu/CardMenu/CardMenu.jsx";
 import menu from "../components/Menu/Menu.module.scss";
 import popular from "../components/Popular/Popular.module.scss";
 import AppContext from "../context.jsx";
+import { motion } from "framer-motion";
 
 export default function Home({ onAddToCart }) {
   const { items, isLoading } = useContext(AppContext);
@@ -23,16 +24,22 @@ export default function Home({ onAddToCart }) {
         if (!item) return null;
 
         return (
-          <Card
-            key={item.id}
-            id={item.id}
-            prodId={item.prodId}
-            title={item.title}
-            imageUrl={item.imageUrl}
-            price={item.price}
-            onAdd={() => onAddToCart(item)}
-            loading={isLoading}
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.3 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Card
+              key={item.id}
+              id={item.id}
+              prodId={item.prodId}
+              title={item.title}
+              imageUrl={item.imageUrl}
+              price={item.price}
+              onAdd={() => onAddToCart(item)}
+              loading={isLoading}
+            />
+          </motion.div>
         );
       });
   };

@@ -34,12 +34,18 @@ function App() {
 
   const onAddToCart = async (obj) => {
     try {
-      if (cartItems.find((cartObj) => cartObj.id === obj.id)) {
+      const itemInCart = cartItems.find(
+        (cartObj) => Number(cartObj.prodId) === Number(obj.prodId)
+      );
+
+      if (itemInCart) {
         await axios.delete(
-          `https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${obj.id}`
+          `https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${itemInCart.id}`
         );
         setCartItems((prev) =>
-          prev.filter((cartObj) => Number(cartObj.id) !== Number(obj.id))
+          prev.filter(
+            (cartObj) => Number(cartObj.prodId) !== Number(obj.prodId)
+          )
         );
       } else {
         const { data } = await axios.post(

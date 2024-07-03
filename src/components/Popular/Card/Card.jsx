@@ -1,7 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import ContentLoader from "react-content-loader";
 import styles from "./Card.module.scss";
 import AppContext from "../../../context";
+import { motion } from "framer-motion";
 
 export default function Card({
   title,
@@ -27,6 +28,7 @@ export default function Card({
           viewBox="0 0 380 330"
           backgroundColor="#ffd28d"
           foregroundColor="#f9d9aa"
+          className={styles.loader}
         >
           <rect x="0" y="0" rx="10" ry="10" width="300" height="220" />
           <rect x="0" y="238" rx="10" ry="10" width="300" height="85" />

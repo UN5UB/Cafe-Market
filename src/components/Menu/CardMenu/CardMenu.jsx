@@ -10,12 +10,13 @@ export default function CardMenu({
   price,
   prodId,
   onAdd,
+  id,
   loading = false,
 }) {
   const { isAdded } = useContext(AppContext);
 
   const onClickCart = () => {
-    onAdd({ title, imageUrl, price, prodId });
+    onAdd({ title, imageUrl, price, prodId, id });
   };
   return (
     <div className={styles.card}>
@@ -27,6 +28,7 @@ export default function CardMenu({
           viewBox="0 0 350 330"
           backgroundColor="#ffd28d"
           foregroundColor="#f9d9aa"
+          className={styles.loader}
         >
           <rect x="0" y="0" rx="10" ry="10" width="350" height="220" />
           <rect x="0" y="238" rx="10" ry="10" width="350" height="85" />

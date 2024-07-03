@@ -1,25 +1,58 @@
 import React from "react";
 import styles from "./Hero.module.scss";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const titleAnimate = {};
 
 export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.hero__left}>
-        <h1>
+        <motion.h1
+          initial={{
+            x: -100,
+          }}
+          animate={{
+            x: 0,
+          }}
+        >
           Enjoy your <span>coffee</span> before your activity
-        </h1>
-        <p>
+        </motion.h1>
+        <motion.p
+          initial={{
+            x: -100,
+            opacity: 0,
+          }}
+          animate={{
+            x: 0,
+            opacity: 1,
+          }}
+          transition={{
+            delay: 0.5,
+          }}
+        >
           Boost your productivity and build your mood with a glass of coffee in
           the morning{" "}
-        </p>
+        </motion.p>
         <Link to="/products" className={styles.order} type="button">
           Order now <img src="/HeroBtn.svg" alt="Order" />
         </Link>
       </div>
-      <div className={styles.hero__right}>
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        transition={{
+          delay: 0.8,
+        }}
+        className={styles.hero__right}
+      >
         <img src="/img-hero.png" alt="Hero Image" />
-      </div>
+      </motion.div>
     </section>
   );
 }

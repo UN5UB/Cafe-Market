@@ -14,6 +14,9 @@
     max-width: 300px;
     width: 100%;
   }
+  img {
+    border-radius: 15px;
+  }
   .info {
     display: flex;
     justify-content: space-between;
@@ -67,6 +70,14 @@
       path {
         fill: #ff902b;
       }
+    }
+  }
+}
+
+.loader {
+  @media (max-width: 479.98px) {
+    rect {
+      width: 250px;
     }
   }
 }
