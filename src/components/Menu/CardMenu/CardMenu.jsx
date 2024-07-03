@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import ContentLoader from "react-content-loader";
-
 import styles from "./CardMenu.module.scss";
 import AppContext from "../../../context";
+import { motion } from "framer-motion";
 
 export default function CardMenu({
   title,
@@ -34,7 +34,11 @@ export default function CardMenu({
           <rect x="0" y="238" rx="10" ry="10" width="350" height="85" />
         </ContentLoader>
       ) : (
-        <>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
           <img src={imageUrl} alt="Product" />
           <div className={styles.info}>
             <div className={styles.description}>
@@ -103,7 +107,7 @@ export default function CardMenu({
               </button>
             </div>
           </div>
-        </>
+        </motion.div>
       )}
     </div>
   );

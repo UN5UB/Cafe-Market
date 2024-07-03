@@ -6,15 +6,20 @@ import { motion } from "framer-motion";
 
 export default function Delivery() {
   return (
-    <motion.section
-      visible="hidden"
-      animate="visible"
-      className={styles.delivery}
-    >
-      <h2>
+    <motion.section className={styles.delivery}>
+      <motion.h2
+        initial={{ x: -100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
         How to use delivery <span>service</span>
-      </h2>
-      <div className={styles.row}>
+      </motion.h2>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+        className={styles.row}
+      >
         {delivery.map((obj) => (
           <Item
             key={obj.id}
@@ -23,7 +28,7 @@ export default function Delivery() {
             imageUrl={obj.imageUrl}
           />
         ))}
-      </div>
+      </motion.div>
     </motion.section>
   );
 }

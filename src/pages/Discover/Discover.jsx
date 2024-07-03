@@ -1,10 +1,15 @@
 import React from "react";
 import styles from "./Discover.module.scss";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 export default function Discover() {
   return (
-    <section className={styles.discover}>
+    <motion.section
+      initial={{ y: 60, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.3 }}
+      className={styles.discover}
+    >
       <h2>
         <span>Discover</span> the best coffee
       </h2>
@@ -23,6 +28,6 @@ export default function Discover() {
           <img src="/CoffeeCup.png" alt="Coffee" />
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

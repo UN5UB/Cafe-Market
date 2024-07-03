@@ -24,11 +24,7 @@ export default function Home({ onAddToCart }) {
         if (!item) return null;
 
         return (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.3 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
-          >
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
             <Card
               key={item.id}
               id={item.id}
