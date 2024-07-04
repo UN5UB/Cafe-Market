@@ -18,21 +18,21 @@ export default function About() {
         </div>
         <div className={styles.info}>
           <motion.h2
-            initial={{ x: 600, opacity: 0 }}
+            initial={{ x: 60, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
             About <span>us</span>
           </motion.h2>
           <motion.h4
-            initial={{ x: 600, opacity: 0 }}
+            initial={{ x: 60, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
             We provide quality coffee, and ready to deliver.
           </motion.h4>
           <motion.p
-            initial={{ x: 600, opacity: 0 }}
+            initial={{ x: 60, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
           >

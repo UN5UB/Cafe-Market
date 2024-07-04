@@ -23,7 +23,7 @@ export default function CardMenu({
       {loading ? (
         <ContentLoader
           speed={2}
-          wprodIdth={300}
+          width={300}
           height={300}
           viewBox="0 0 350 330"
           backgroundColor="#ffd28d"

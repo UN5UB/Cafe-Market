@@ -27,7 +27,7 @@
     .search {
       display: flex;
       position: relative;
-
+      z-index: 1;
       align-items: center;
       input {
         border-color: transparent;
@@ -38,6 +38,7 @@
         max-width: 200px;
         height: 30px;
         background-color: #fff;
+
         &::placeholder {
           color: #000;
           font-family: "Poppins", sans-serif;

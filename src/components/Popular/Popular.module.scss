@@ -14,10 +14,14 @@
     span {
       border-bottom: 3px solid #f4ae26;
     }
+    @media (max-width: 990.98px) {
+      margin: 80px 0 120px 0;
+      text-align: center;
+    }
     @media (max-width: 479.98px) {
       display: flex;
       justify-content: center;
-      margin: 0 0 120px 0;
+      margin-top: 50px;
     }
   }
   .bacground {

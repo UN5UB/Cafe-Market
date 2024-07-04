@@ -1,22 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./CartItem.module.scss";
 
 export default function CartItem({
   title,
   price,
   imageUrl,
-  prodId,
   id,
+  count,
   onRemove,
+  onUpdateCount,
 }) {
-  let [count, setCount] = useState(1);
+  const totalCost = count * price;
 
   const increment = () => {
-    setCount(count + 1);
+    const newCount = count + 1;
+    onUpdateCount(id, newCount);
   };
 
   const decrement = () => {
-    setCount(count - 1);
+    const newCount = count > 1 ? count - 1 : 1;
+    onUpdateCount(id, newCount);
   };
 
   return (
@@ -26,14 +29,12 @@ export default function CartItem({
       </div>
       <div className={styles.cart__info}>
         <h3 className={styles.cart__title}>{title}</h3>
-        <b>{price} $</b>
+        <b>{totalCost} $</b>
       </div>
       <div className={styles.cart__counter}>
         <button onClick={increment}>+</button>
-        <input value={count} />
-        <button disabled={count === 1} onClick={decrement}>
-          -
-        </button>
+        <input value={count} readOnly />
+        <button onClick={decrement}>-</button>
       </div>
       <button onClick={() => onRemove(id)} className={styles.cart__remove}>
         ×
