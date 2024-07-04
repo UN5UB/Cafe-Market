@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./Drawer.module.scss";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
-import AppContext from "../../../context";
 
 export default function Drawer({ onCloseCart, items = [], onRemove }) {
-  const { cartItems, setCartItems } = useContext(AppContext);
-
   const [itemsState, setItemsState] = useState(items);
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -28,8 +25,6 @@ export default function Drawer({ onCloseCart, items = [], onRemove }) {
       item.id === id ? { ...item, count: newCount } : item
     );
     setItemsState(updatedItems);
-
-    // Update count in backend
     try {
       const response = await axios.put(
         `https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${id}`,
