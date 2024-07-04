@@ -22,10 +22,10 @@ export default function Discover() {
             There is no doubt that you will enjoy this coffee more than others
             you have ever tasted.
           </p>
-          <Link to="/products">Learn More</Link>
+          <Link to="products">Learn More</Link>
         </div>
         <div className={styles.image}>
-          <img src="/CoffeeCup.png" alt="Coffee" />
+          <img src="CoffeeCup.png" alt="Coffee" />
         </div>
       </div>
     </motion.section>

@@ -47,15 +47,15 @@ export default function Drawer({ onCloseCart, items = [], onRemove }) {
         <div className={styles.drawerTitle}>
           <h3>Cart</h3>
           <button onClick={onCloseCart} type="button">
-            <img width={50} src="/X.svg" alt="Close" />
+            <img width={50} src="X.svg" alt="Close" />
           </button>
         </div>
         {itemsState.length === 0 ? (
           <div className={styles.emptyDrawer}>
-            <img src="/Delivery/Pick.png" alt="Cart" />
+            <img src="Delivery/Pick.png" alt="Cart" />
             <div className={styles.emptyInfo}>
               <h4>Cart is empty</h4>
-              <Link onClick={onCloseCart} to={"/products"}>
+              <Link onClick={onCloseCart} to={"products"}>
                 Choose your coffee
               </Link>
             </div>

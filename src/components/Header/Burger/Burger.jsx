@@ -22,22 +22,22 @@ const Burger = () => {
       <nav className={`${styles.menu} ${isOpen ? styles.open : ""}`}>
         <ul>
           <li>
-            <Link onClick={toggleMenu} to="/">
+            <Link onClick={toggleMenu} to="">
               Home
             </Link>
           </li>
           <li>
-            <Link onClick={toggleMenu} to="/about">
+            <Link onClick={toggleMenu} to="about">
               About us
             </Link>
           </li>
           <li>
-            <Link onClick={toggleMenu} to="/products">
+            <Link onClick={toggleMenu} to="products">
               Our Product
             </Link>
           </li>
           <li>
-            <Link onClick={toggleMenu} to="/delivery">
+            <Link onClick={toggleMenu} to="delivery">
               Delivery
             </Link>
           </li>

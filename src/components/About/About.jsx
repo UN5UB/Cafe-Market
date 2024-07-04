@@ -12,7 +12,7 @@ export default function About() {
             initial={{ y: -10, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            src="/About/about.png"
+            src="About/about.png"
             alt="Vanilla Latte"
           />
         </div>
@@ -40,7 +40,7 @@ export default function About() {
             main product is made with a secret recipe and available in stores
             worldwide.
           </motion.p>
-          <Link to="/products">Get your coffee</Link>
+          <Link to="products">Get your coffee</Link>
         </div>
       </div>
     </section>

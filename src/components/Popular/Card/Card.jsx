@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import ContentLoader from "react-content-loader";
 import styles from "./Card.module.scss";
 import AppContext from "../../../context";
-import { motion } from "framer-motion";
 
 export default function Card({
   title,

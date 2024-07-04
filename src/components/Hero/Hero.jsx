@@ -35,8 +35,8 @@ export default function Hero() {
           Boost your productivity and build your mood with a glass of coffee in
           the morning{" "}
         </motion.p>
-        <Link to="/products" className={styles.order} type="button">
-          Order now <img src="/HeroBtn.svg" alt="Order" />
+        <Link to="products" className={styles.order} type="button">
+          Order now <img src="HeroBtn.svg" alt="Order" />
         </Link>
       </div>
       <motion.div
@@ -51,7 +51,7 @@ export default function Hero() {
         }}
         className={styles.hero__right}
       >
-        <img src="/img-hero.png" alt="Hero Image" />
+        <img src="img-hero.png" alt="Hero Image" />
       </motion.div>
     </section>
   );
