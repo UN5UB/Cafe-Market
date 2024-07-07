@@ -85,7 +85,7 @@ function App() {
         <Header onCart={() => setCardOpened(true)} />
         <Routes>
           <Route
-            path="Cafe-Market/"
+            path="Cafe-Market"
             element={<Home onAddToCart={onAddToCart} />}
             exact
           />
