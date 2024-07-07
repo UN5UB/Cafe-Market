@@ -10,7 +10,7 @@ const Header = ({ onCart }) => {
   return (
     <header className={styles.header}>
       <Link to="Cafe-Market/" className={styles.logo}>
-        <img src="img/Icons/logo_coffe.svg" alt="Cafe Street" />
+        <img src="Icons/logo_coffe.svg" alt="Cafe Street" />
       </Link>
       <nav>
         <ul>
