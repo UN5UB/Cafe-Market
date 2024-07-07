@@ -15,13 +15,13 @@ const Header = ({ onCart }) => {
       <nav>
         <ul>
           <li>
-            <Link to="about/">About us</Link>
+            <Link to="about">About us</Link>
           </li>
           <li>
-            <Link to="products/">Our Product</Link>
+            <Link to="products">Our Product</Link>
           </li>
           <li>
-            <Link to="delivery/">Delivery</Link>
+            <Link to="delivery">Delivery</Link>
           </li>
         </ul>
       </nav>
