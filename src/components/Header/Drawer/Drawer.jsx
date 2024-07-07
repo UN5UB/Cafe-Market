@@ -52,7 +52,7 @@ export default function Drawer({ onCloseCart, items = [], onRemove }) {
         </div>
         {itemsState.length === 0 ? (
           <div className={styles.emptyDrawer}>
-            <img src="Delivery/Pick.png" alt="Cart" />
+            <img src="Delivery/Pick.pngDelivery/Pick.png" alt="Cart" />
             <div className={styles.emptyInfo}>
               <h4>Cart is empty</h4>
               <Link onClick={onCloseCart} to={"products"}>
