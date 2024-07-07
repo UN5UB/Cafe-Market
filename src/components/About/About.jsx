@@ -5,13 +5,7 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section
-      className={styles.about}
-      style={{
-        background: "url(Icons/bg-image.png) no-repeat",
-        backgroundSize: "100% 100%",
-      }}
-    >
+    <section className={styles.about}>
       <div className={styles.container}>
         <div>
           <motion.img
