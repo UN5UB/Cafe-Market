@@ -12,7 +12,7 @@ export default function About() {
             initial={{ y: -10, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            src="About/about.png"
+            src="img/About/about.png"
             alt="Vanilla Latte"
           />
         </div>

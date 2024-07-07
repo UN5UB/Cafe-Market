@@ -34,7 +34,7 @@ export default function Hero() {
           the morning{" "}
         </motion.p>
         <Link to="products" className={styles.order} type="button">
-          Order now <img src="HeroBtn.svg" alt="Order" />
+          Order now <img src="img/Icons/HeroBtn.svg" alt="Order" />
         </Link>
       </div>
       <motion.div
@@ -49,7 +49,7 @@ export default function Hero() {
         }}
         className={styles.hero__right}
       >
-        <img src="img-hero.png" alt="Hero Image" />
+        <img src="img/Icons/img-hero.png" alt="Hero Image" />
       </motion.div>
     </section>
   );

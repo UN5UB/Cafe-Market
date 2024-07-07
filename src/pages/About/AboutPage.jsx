@@ -41,7 +41,7 @@ export default function AboutPage() {
           initial={{ y: -60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          src="About/about.png"
+          src="img/About/about.png"
           alt="Coffee"
         />
       </div>
@@ -60,7 +60,7 @@ export default function AboutPage() {
           initial={{ x: -60, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
-          src="About/Coffee Types Banner Desktop.webp"
+          src="img/About/Coffee Types Banner Desktop.webp"
           alt="Coffee"
         />
       </div>

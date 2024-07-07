@@ -28,19 +28,19 @@ export const popular = [
 export const delivery = [
   {
     id: "choose",
-    imageUrl: "Delivery/Pick.png",
+    imageUrl: "img/Delivery/Pick.png",
     title: "Choose your coffee",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing.",
   },
   {
     id: "delivery",
-    imageUrl: "Delivery/coffee-cup.png",
+    imageUrl: "img/Delivery/coffee-cup.png",
     title: "We delivery it to you",
     description: "Lorem ipsum dolor sit amet consectetur.",
   },
   {
     id: "coffee",
-    imageUrl: "Delivery/food-truck.png",
+    imageUrl: "img/Delivery/food-truck.png",
     title: "Enjoy your coffee",
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
   },
