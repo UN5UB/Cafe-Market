@@ -58,7 +58,7 @@ export default function Menu({ onAddToCart }) {
               <img
                 className={styles.clear}
                 width={20}
-                src="X.svg"
+                src="Icons/X.svg"
                 alt="Close"
                 onClick={() => setSearchValue("")}
               />

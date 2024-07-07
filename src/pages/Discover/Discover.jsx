@@ -25,7 +25,7 @@ export default function Discover() {
           <Link to="products/">Learn More</Link>
         </div>
         <div className={styles.image}>
-          <img src="img/Icons/CoffeeCup.png" alt="Coffee" />
+          <img src="Icons/CoffeeCup.png" alt="Coffee" />
         </div>
       </div>
     </motion.section>

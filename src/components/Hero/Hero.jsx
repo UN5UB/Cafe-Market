@@ -49,7 +49,7 @@ export default function Hero() {
         }}
         className={styles.hero__right}
       >
-        <img src="img/Icons/img-hero.png" alt="Hero Image" />
+        <img src="Icons/img-hero.png" alt="Hero Image" />
       </motion.div>
     </section>
   );
