@@ -3,8 +3,6 @@ import styles from "./Hero.module.scss";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const titleAnimate = {};
-
 export default function Hero() {
   return (
     <section className={styles.hero}>

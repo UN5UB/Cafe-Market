@@ -85,13 +85,16 @@ function App() {
         <Header onCart={() => setCardOpened(true)} />
         <Routes>
           <Route
-            path="Cafe-Market"
+            path="Cafe-Market/"
             element={<Home onAddToCart={onAddToCart} />}
             exact
           />
-          <Route path="products" element={<Menu onAddToCart={onAddToCart} />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="delivery" element={<DeliveryPage />} />
+          <Route
+            path="products/"
+            element={<Menu onAddToCart={onAddToCart} />}
+          />
+          <Route path="about/" element={<AboutPage />} />
+          <Route path="delivery/" element={<DeliveryPage />} />
         </Routes>
       </div>
     </AppContext.Provider>

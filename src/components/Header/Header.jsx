@@ -9,19 +9,19 @@ const Header = ({ onCart }) => {
 
   return (
     <header className={styles.header}>
-      <Link to="Cafe-Market" className={styles.logo}>
+      <Link to="Cafe-Market/" className={styles.logo}>
         <img src="/icons/logo_coffe.svg" alt="Cafe Street" />
       </Link>
       <nav>
         <ul>
           <li>
-            <Link to="about">About us</Link>
+            <Link to="about/">About us</Link>
           </li>
           <li>
-            <Link to="products">Our Product</Link>
+            <Link to="products/">Our Product</Link>
           </li>
           <li>
-            <Link to="delivery">Delivery</Link>
+            <Link to="delivery/">Delivery</Link>
           </li>
         </ul>
       </nav>
