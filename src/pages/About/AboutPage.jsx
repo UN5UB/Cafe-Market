@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./AboutPage.module.scss";
+import Discover from "../Discover/Discover";
 import { motion } from "framer-motion";
 
 export default function AboutPage() {
@@ -63,6 +64,7 @@ export default function AboutPage() {
           alt="Coffee"
         />
       </div>
+      <Discover />
     </section>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./DeliveryPage.module.scss";
 import { delivery } from "../../CAFE_DATA";
 import Item from "../../components/Delivery/Item/Item";
+import Discover from "../Discover/Discover";
 
 export default function DeliveryPage() {
   return (
@@ -19,6 +20,7 @@ export default function DeliveryPage() {
           />
         ))}
       </div>
+      <Discover />
     </section>
   );
 }
