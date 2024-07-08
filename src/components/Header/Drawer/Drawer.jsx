@@ -29,7 +29,6 @@ export default function Drawer({ onCloseCart, items = [], onRemove }) {
     );
     setItemsState(updatedItems);
 
-    // Update count in backend
     try {
       const response = await axios.put(
         `https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${id}`,
@@ -49,8 +48,6 @@ export default function Drawer({ onCloseCart, items = [], onRemove }) {
   const handleRemove = async (id) => {
     const updatedItems = itemsState.filter((item) => item.id !== id);
     setItemsState(updatedItems);
-
-    // Remove item from backend
     try {
       const response = await axios.delete(
         `https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${id}`
