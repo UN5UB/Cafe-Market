@@ -40,7 +40,7 @@ export default function About() {
             main product is made with a secret recipe and available in stores
             worldwide.
           </motion.p>
-          <Link to="products/">Get your coffee</Link>
+          <Link to="products">Get your coffee</Link>
         </div>
       </div>
     </section>
