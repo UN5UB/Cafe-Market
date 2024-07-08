@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import styles from "./Drawer.module.scss";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
+import AppContext from "../../../context";
 
 export default function Drawer({ onCloseCart, items = [], onRemove }) {
+  const { cartItems, setCartItems } = useContext(AppContext);
+
   const [itemsState, setItemsState] = useState(items);
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -25,6 +28,8 @@ export default function Drawer({ onCloseCart, items = [], onRemove }) {
       item.id === id ? { ...item, count: newCount } : item
     );
     setItemsState(updatedItems);
+
+    // Update count in backend
     try {
       const response = await axios.put(
         `https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${id}`,
@@ -41,21 +46,41 @@ export default function Drawer({ onCloseCart, items = [], onRemove }) {
     }
   };
 
+  const handleRemove = async (id) => {
+    const updatedItems = itemsState.filter((item) => item.id !== id);
+    setItemsState(updatedItems);
+
+    // Remove item from backend
+    try {
+      const response = await axios.delete(
+        `https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${id}`
+      );
+
+      if (response.status !== 200) {
+        throw new Error("Failed to remove item from backend");
+      }
+
+      console.log("Item removed successfully:", response.data);
+    } catch (error) {
+      console.error("Error removing item:", error);
+    }
+  };
+
   return (
     <div className={styles.overlay}>
       <div className={styles.drawer}>
         <div className={styles.drawerTitle}>
           <h3>Cart</h3>
           <button onClick={onCloseCart} type="button">
-            <img width={50} src="Icons/X.svg" alt="Close" />
+            <img width={50} src="/X.svg" alt="Close" />
           </button>
         </div>
         {itemsState.length === 0 ? (
           <div className={styles.emptyDrawer}>
-            <img src="Delivery/Pick.png" alt="Cart" />
+            <img src="/Delivery/Pick.png" alt="Cart" />
             <div className={styles.emptyInfo}>
               <h4>Cart is empty</h4>
-              <Link onClick={onCloseCart} to={"products"}>
+              <Link onClick={onCloseCart} to={"/products"}>
                 Choose your coffee
               </Link>
             </div>
@@ -71,7 +96,7 @@ export default function Drawer({ onCloseCart, items = [], onRemove }) {
                 price={obj.price}
                 count={obj.count}
                 imageUrl={obj.imageUrl}
-                onRemove={onRemove}
+                onRemove={handleRemove}
                 onUpdateCount={handleUpdateCount}
               />
             ))}
