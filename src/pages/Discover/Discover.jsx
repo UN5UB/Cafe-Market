@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Discover.module.scss";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 export default function Discover() {
   return (
