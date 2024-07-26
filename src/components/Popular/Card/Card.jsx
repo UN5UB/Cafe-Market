@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import ContentLoader from "react-content-loader";
 import styles from "./Card.module.scss";
-import AppContext from "../../../context";
 
 export default function Card({
   title,
@@ -10,9 +9,8 @@ export default function Card({
   onAdd,
   prodId,
   loading = false,
+  checked,
 }) {
-  const { isAdded } = useContext(AppContext);
-
   const onClickCart = () => {
     onAdd({ title, price, imageUrl, onAdd, prodId });
   };
@@ -43,9 +41,9 @@ export default function Card({
             {" "}
             <button
               onClick={onClickCart}
-              className={isAdded(prodId) ? styles.cart__active : styles.cart}
+              className={checked ? styles.cart__active : styles.cart}
             >
-              {isAdded(prodId) ? (
+              {checked ? (
                 <svg
                   fill="#ffffff"
                   height="18px"

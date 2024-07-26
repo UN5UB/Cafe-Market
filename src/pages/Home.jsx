@@ -10,8 +10,9 @@ import popular from "../components/Popular/Popular.module.scss";
 import AppContext from "../context.jsx";
 import { motion } from "framer-motion";
 
-export default function Home({ onAddToCart }) {
-  const { items, isLoading } = useContext(AppContext);
+export default function Home() {
+  const { items, cartItems, isLoading, onAddToCart, onRemoveItem } =
+    useContext(AppContext);
 
   const renderItems = () => {
     return (isLoading ? [...Array(4)] : items)
@@ -34,6 +35,8 @@ export default function Home({ onAddToCart }) {
               price={item.price}
               onAdd={() => onAddToCart(item)}
               loading={isLoading}
+              checked={cartItems.some((obj) => obj.prodId === item.prodId)}
+              onRemove={() => onRemoveItem(item.prodId)}
             />
           </motion.div>
         );
@@ -57,6 +60,7 @@ export default function Home({ onAddToCart }) {
           price={menu.price}
           onAdd={() => onAddToCart(menu)}
           loading={isLoading}
+          checked={cartItems.some((obj) => obj.prodId === menu.prodId)}
         />
       );
     });

@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import ContentLoader from "react-content-loader";
 import styles from "./CardMenu.module.scss";
-import AppContext from "../../../context";
 import { motion } from "framer-motion";
 
 export default function CardMenu({
@@ -12,9 +11,8 @@ export default function CardMenu({
   onAdd,
   id,
   loading = false,
+  checked = false,
 }) {
-  const { isAdded } = useContext(AppContext);
-
   const onClickCart = () => {
     onAdd({ title, imageUrl, price, prodId, id });
   };
@@ -48,11 +46,9 @@ export default function CardMenu({
               <b>{price} $</b>
               <button
                 onClick={onClickCart}
-                className={
-                  isAdded(prodId) ? styles.button__active : styles.button
-                }
+                className={checked ? styles.button__active : styles.button}
               >
-                {isAdded(prodId) ? (
+                {checked ? (
                   <svg
                     fill="#ffffff"
                     height="18px"

@@ -3,8 +3,8 @@ import styles from "./Menu.module.scss";
 import CardMenu from "../../components/Menu/CardMenu/CardMenu";
 import AppContext from "../../context";
 
-export default function Menu({ onAddToCart }) {
-  const { items, cartItems, isLoading } = useContext(AppContext);
+export default function Menu() {
+  const { items, cartItems, isLoading, onAddToCart } = useContext(AppContext);
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -33,7 +33,7 @@ export default function Menu({ onAddToCart }) {
           subtitle={menu.subtitle}
           imageUrl={menu.imageUrl}
           price={menu.price}
-          checked={cartItems.some((obj) => obj.title === menu.title)}
+          checked={cartItems.some((obj) => obj.prodId === menu.prodId)}
           onAdd={() => onAddToCart(menu)}
           loading={isLoading}
         />

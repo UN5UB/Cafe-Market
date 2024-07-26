@@ -18,16 +18,18 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const cartRes = await axios.get(
-        "https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart"
-      );
-      const itemsRes = await axios.get(
-        "https://6678762a0bd45250561ebea6.mockapi.io/menu/Menu"
-      );
+      try {
+        const [cartRes, itemsRes] = await Promise.all([
+          axios.get("https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart"),
+          axios.get("https://6678762a0bd45250561ebea6.mockapi.io/menu/Menu"),
+        ]);
 
-      setIsLoading(false);
-      setCartItems(cartRes.data);
-      setItems(itemsRes.data);
+        setIsLoading(false);
+        setCartItems(cartRes.data);
+        setItems(itemsRes.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     }
     fetchData();
   }, []);
@@ -55,17 +57,21 @@ function App() {
         setCartItems((prev) => [...prev, data]);
       }
     } catch (error) {
-      console.log("Error");
+      console.error("Error adding/removing item:", error);
     }
   };
 
   const onRemoveItem = async (id) => {
-    await axios.delete(
-      `https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${id}`
-    );
-    setCartItems((prev) =>
-      prev.filter((item) => Number(item.id) !== Number(id))
-    );
+    try {
+      await axios.delete(
+        `https://6678762a0bd45250561ebea6.mockapi.io/menu/Cart/${id}`
+      );
+      setCartItems((prev) =>
+        prev.filter((item) => Number(item.id) !== Number(id))
+      );
+    } catch (error) {
+      console.error("Error removing item:", error);
+    }
   };
 
   const isAdded = (prodId) => {
@@ -73,19 +79,28 @@ function App() {
   };
 
   return (
-    <AppContext.Provider value={{ items, cartItems, isLoading, isAdded }}>
+    <AppContext.Provider
+      value={{
+        items,
+        cartItems,
+        isLoading,
+        isAdded,
+        onAddToCart,
+        onRemoveItem,
+      }}
+    >
       <div className="wrapper">
-        {cartOpened ? (
+        {cartOpened && (
           <Drawer
             onRemove={onRemoveItem}
             items={cartItems}
             onCloseCart={() => setCardOpened(false)}
           />
-        ) : null}
+        )}
         <Header onCart={() => setCardOpened(true)} />
         <Routes>
-          <Route path="/" element={<Home onAddToCart={onAddToCart} />} />
-          <Route path="products" element={<Menu onAddToCart={onAddToCart} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="products" element={<Menu />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="delivery" element={<DeliveryPage />} />
         </Routes>

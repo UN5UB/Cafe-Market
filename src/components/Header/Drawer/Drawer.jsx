@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./Drawer.module.scss";
 import CartItem from "./CartItem/CartItem";
 import { Link } from "react-router-dom";
-import AppContext from "../../../context";
 
 export default function Drawer({ onCloseCart, items = [] }) {
   const [itemsState, setItemsState] = useState(items);
@@ -36,8 +35,6 @@ export default function Drawer({ onCloseCart, items = [] }) {
       if (response.status !== 200) {
         throw new Error("Failed to update count in backend");
       }
-
-      console.log("Count updated successfully:", response.data);
     } catch (error) {
       console.error("Error updating count:", error);
     }
@@ -54,8 +51,6 @@ export default function Drawer({ onCloseCart, items = [] }) {
       if (response.status !== 200) {
         throw new Error("Failed to remove item from backend");
       }
-
-      console.log("Item removed successfully:", response.data);
     } catch (error) {
       console.error("Error removing item:", error);
     }
